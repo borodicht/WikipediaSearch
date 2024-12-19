@@ -2,9 +2,6 @@ package pages;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
-import org.testng.Assert;
-
-import java.util.Objects;
 
 public class WikipediaHomePage {
     WebDriver driver;
@@ -13,17 +10,17 @@ public class WikipediaHomePage {
         this.driver = driver;
     }
 
-    private By searchInput = By.id("searchInput");
-    private By searchButton = By.cssSelector("button[type='submit']");
+    private static final By SEARCH_INPUT = By.id("searchInput");
+    private static final By SEARCH_BUTTON = By.cssSelector("button[type='submit']");
     String title = "//span[text()='%s']";
 
-    public void navigateToHomePage() {
+    public void openPage() {
         driver.get("https://www.wikipedia.org/");
     }
 
-    public void searchFor(String query) {
-        driver.findElement(searchInput).sendKeys(query);
-        driver.findElement(searchButton).click();
+    public void searchFor(String keyword) {
+        driver.findElement(SEARCH_INPUT).sendKeys(keyword);
+        driver.findElement(SEARCH_BUTTON).click();
     }
 
     public boolean isResultDisplayed(String text) {

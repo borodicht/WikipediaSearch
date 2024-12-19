@@ -26,12 +26,12 @@ public class WikipediaSteps {
 
     @Given("I am on the Wikipedia homepage")
     public void iAmOnTheWikipediaHomepage() {
-        homePage.navigateToHomePage();
+        homePage.openPage();
     }
 
     @When("I search for {string}")
-    public void iSearchFor(String query) {
-        homePage.searchFor(query);
+    public void iSearchFor(String keyword) {
+        homePage.searchFor(keyword);
     }
 
     @Then("I should see results containing {string}")
